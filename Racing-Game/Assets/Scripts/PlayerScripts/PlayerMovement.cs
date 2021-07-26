@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float _rotationSpeed = 60;
 
     //Private Variables
-    Vector3 rotation;
+    Vector3 _rotation;
 
     private void Start() 
     {
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         FinishLine finishLineScript = _finishLine.GetComponent<FinishLine>();
 
         //Checking the see if the player has won
-        if (finishLineScript.hasWon == false)
+        if (finishLineScript._hasWon == false)
         {
             //Moving the player
             Vector3 move = new Vector3(0, 0, Input.GetAxisRaw("Vertical") * Time.deltaTime);
@@ -33,8 +33,8 @@ public class PlayerMovement : MonoBehaviour
             _controller.Move(move * _speed);
 
             //Rotating the character
-            this.rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
-            this.transform.Rotate(this.rotation);
+            this._rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
+            this.transform.Rotate(this._rotation);
         }else return;
 
     }

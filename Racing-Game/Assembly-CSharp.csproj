@@ -36,10 +36,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
-     <Compile Include="Assets\Scripts\FinishLIneScripts\FinishLine.cs" />
      <Compile Include="Assets\Scripts\FinishLIneScripts\WallRemover.cs" />
      <Compile Include="Assets\Scripts\FinishLIneScripts\WallAdder.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\FinishLIneScripts\FinishLine.cs" />
+     <Compile Include="Assets\Scripts\GameCleaner.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/Users/haydenzamora/Documents/git/2020.2.1f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
