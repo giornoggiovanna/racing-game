@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637628377090000000
+      ticks: 637629108420000000
     m_Hash: 499005669
   m_LockFileStatus:
     m_FilePath: /Users/haydenzamora/Documents/racing-game/Racing-Game/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637628377140000000
+      ticks: 637629800150000000
     m_Hash: 3861478062
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}

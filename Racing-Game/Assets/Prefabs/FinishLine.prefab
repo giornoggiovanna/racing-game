@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b7df754ace344a4a721674ec7578a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  finishLineWall: {fileID: 4196718984804262011}
+  _finishLineWall: {fileID: 4196718984804262011}
 --- !u!1 &4196718983259029908
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +456,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f849fb1d13284ef1a4f4eb86e4fea44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lapNumber: 0
+  lapText: {fileID: 0}
+  winText: {fileID: 0}
+  raceTimeText: {fileID: 0}
+  highScore: {fileID: 0}
+  restartButton: {fileID: 0}
+  restartButtonImage: {fileID: 0}
+  hasWon: 0
 --- !u!65 &4196718984605106039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -468,8 +474,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.27, y: 1, z: 20.01}
-  m_Center: {x: 2.69, y: -3.74, z: -0}
+  m_Size: {x: 1.3613434, y: 1.6049945, z: 20.01}
+  m_Center: {x: -0.2, y: -3.4375024, z: 0}
 --- !u!1 &4196718984633677202
 GameObject:
   m_ObjectHideFlags: 0

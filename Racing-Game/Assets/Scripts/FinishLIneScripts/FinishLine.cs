@@ -1,106 +1,99 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FinishLine : MonoBehaviour
 {
 
-    //Public Components/Gameobjects
-    public Text _lapText;
-    public Text _winText;
-    public Text _raceTimeText;
-    public Text _highscore;
-    public Button _restartButton;
-    public Image _restartButtonImage;
+    [Header("Components")]
+    [SerializeField] private Text lapText;
+    [SerializeField] private Text winText;
+    [SerializeField] private Text raceTimeText;
+    [SerializeField] private Text highScore;
+    [SerializeField] private Button restartButton;
+    [SerializeField] private Image restartButtonImage;
 
-    //Public Variables
-    public bool _hasWon;
+    [HideInInspector]
+    public bool hasWon;
 
-    //Private Components/Gameobjects
+    private int _lapNumber;
+    private float _lapCooldown;
+    private float _raceTime;
+    private float _lastRaceTime;
 
-    //Private Variables
-    public int _lapNumber;
-    float _lapCooldown;
-    float _raceTime;
-    float _lastRaceTime;
-
-    void Start()
+    private void Start()
     {
-        //Setting the variables to their required value at the beginning
-        
-        _hasWon = false;
-        _winText.enabled = false;
-        
-        _raceTime = 0;
-        _restartButton.enabled = false;
-        _restartButtonImage.gameObject.SetActive(false);
-
-
-        _highscore.text = $"Highscore: {PlayerPrefs.GetFloat("Highscore")}";
+        SetComponents();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetComponents()
     {
-        //Setting the cooldown timer
-        
+        winText.enabled = false;
+        restartButton.enabled = false;
+        restartButtonImage.gameObject.SetActive(false);
 
-        //Checking the cooldown, for devs only
-        print(_lapCooldown);
-
-        _lapText.text = $"Lap {_lapNumber}";
-        _raceTimeText.text = $"Time {_raceTime}";
-
-        //Checking to see if the player has won
-        if (_lapNumber >= 4)
-        {
-            gameWin();
-            _lapText.text = $"Finish";
-        }
-
-        if(_lapNumber != 0 && !_hasWon)
-        {
-            _raceTime += Time.deltaTime;
-            _lapCooldown += Time.deltaTime;
-        }
-
+        highScore.text = "HighScore: " + PlayerPrefs.GetFloat("HighScore");
     }
 
-    //Checking to see if the player's front sensor has collided with the finish line
+    private void Update()
+    {
+        UpdateText();
+        CheckHasWon();
+        UpdateTimers();
+    }
+
+    private void UpdateTimers()
+    {
+        if (_lapNumber == 0 || hasWon) return;
+
+        _raceTime += Time.deltaTime;
+        _lapCooldown += Time.deltaTime;
+    }
+
+    private void UpdateText()
+    {
+        lapText.text = "Lap " + _lapNumber;
+        raceTimeText.text = "Time: " + _raceTime;
+    }
+
+    private void CheckHasWon()
+    {
+        if (_lapNumber < 4) return;
+
+        GameWin();
+        lapText.text = "Finish";
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "FrontSensor" && _lapCooldown >= 10)
+        if (other.CompareTag("FrontSensor") && _lapCooldown >= 10)
         {
-            //Resetting the lap cooldown, and adding another lap
-            _lapCooldown = 0;
-            _lapNumber++;
-            print(_lapNumber);
-            
-        }else if (_lapNumber == 0)
+            CompleteLap();
+        }
+        else if (_lapNumber == 0)
         {
-            
-            
             _lapNumber++;
-        }else return;
+        }
     }
 
-    //Telling the code what to do when the player has won
-    public void gameWin()
+    private void CompleteLap()
     {
-        _hasWon = true;
-        _winText.enabled = true;
-        _restartButton.enabled = true;
-        _restartButtonImage.gameObject.SetActive(true);
+        _lapCooldown = 0;
+        _lapNumber++;
+    }
+
+    private void GameWin()
+    {
+        hasWon = true;
+        winText.enabled = true;
+        restartButton.enabled = true;
+        restartButtonImage.gameObject.SetActive(true);
 
         _lastRaceTime = _raceTime;
+        
 
-        PlayerPrefs.SetFloat("Highscore", _lastRaceTime);
-
-        if (PlayerPrefs.GetFloat("Highscore") > _lastRaceTime)
+        if (PlayerPrefs.GetFloat("HighScore") > _lastRaceTime | PlayerPrefs.GetFloat("Highscore") == 0f)
         {
-           
-        }else return;
+            PlayerPrefs.SetFloat("HighScore", _lastRaceTime);
+        }
     }
-
 }
