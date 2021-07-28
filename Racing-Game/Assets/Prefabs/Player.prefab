@@ -132,7 +132,7 @@ MonoBehaviour:
   frontRightWheelTransform: {fileID: 7058652351917033703}
   backLeftWheelTransform: {fileID: 8813207276040947746}
   backRightWheelTransform: {fileID: 887687569221576208}
-  com: {x: 0, y: 0.5, z: 0}
+  com: {x: 0, y: -0.9, z: 0}
   myRB: {fileID: 1118684418633386071}
   motorSpeed: 1000
   maxSteeringAngle: 30
@@ -455,11 +455,11 @@ WheelCollider:
   m_Mass: 80
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 2
+    m_ExtremumSlip: 5
     m_ExtremumValue: 5
     m_AsymptoteSlip: 5
     m_AsymptoteValue: 2
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.1
     m_ExtremumValue: 1
@@ -516,11 +516,11 @@ WheelCollider:
   m_Mass: 80
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 2
+    m_ExtremumSlip: 5
     m_ExtremumValue: 5
     m_AsymptoteSlip: 5
     m_AsymptoteValue: 2
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.1
     m_ExtremumValue: 1
@@ -577,11 +577,11 @@ WheelCollider:
   m_Mass: 80
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 2
+    m_ExtremumSlip: 5
     m_ExtremumValue: 5
     m_AsymptoteSlip: 5
     m_AsymptoteValue: 2
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.1
     m_ExtremumValue: 1
@@ -866,11 +866,11 @@ WheelCollider:
   m_Mass: 80
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 2
+    m_ExtremumSlip: 5
     m_ExtremumValue: 5
     m_AsymptoteSlip: 5
     m_AsymptoteValue: 2
-    m_Stiffness: 1
+    m_Stiffness: 5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.1
     m_ExtremumValue: 1
